@@ -1,5 +1,7 @@
 import { useRef } from "react"
 import { Link } from "react-router-dom"
+import '../styles/Main.css'
+
 export const Main = () => {
   const inputRef = useRef(null)
 
@@ -16,6 +18,7 @@ export const Main = () => {
 
       <form action="" id="form">
         <input 
+          className="userid"
           type="text"
           ref={inputRef} 
           placeholder="Unername*"
