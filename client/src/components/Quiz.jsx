@@ -1,6 +1,13 @@
+import { useEffect } from "react"
 import { Questions } from "./Questions"
+import { useSelector } from "react-redux"
 
 export const Quiz = () => {
+  const { questions } = useSelector(state => state)
+
+  useEffect(() => {
+    console.log(questions)
+  })
   const onNext = () => {
 
   }
@@ -11,7 +18,7 @@ export const Quiz = () => {
 
   return (
     <div className="container">
-      <h1 className="title text-light">Quiz</h1>
+      <h1 className="title text-light">Quiz App</h1>
       <Questions />
       {
 
