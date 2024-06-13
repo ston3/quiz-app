@@ -1,8 +1,8 @@
-import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Main } from './components/Main'
 import { Quiz } from './components/Quiz'
 import { Result } from './components/Result'
+import './styles/App.css'
 
 const router = createBrowserRouter([
   {
@@ -20,8 +20,6 @@ const router = createBrowserRouter([
 ])
 
 function App() {
-
-
   return (
     <>
       <RouterProvider router={router}/>
