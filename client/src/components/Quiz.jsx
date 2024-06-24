@@ -3,10 +3,11 @@ import { Questions } from "./Questions"
 import { useSelector } from "react-redux"
 
 export const Quiz = () => {
-  const { questions } = useSelector(state => state)
+  const { questions, result } = useSelector(state => state)
 
   useEffect(() => {
     console.log(questions)
+    console.log(result)
   })
   const onNext = () => {
 

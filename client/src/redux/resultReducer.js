@@ -13,5 +13,5 @@ export const resultReducer = createSlice({
   }
 }) 
 
-export const { setUserId } = resultReducer.action
+export const { setUserId } = resultReducer.actions
 export default resultReducer.reducer
