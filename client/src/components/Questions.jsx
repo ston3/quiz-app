@@ -10,27 +10,27 @@ export const Questions = () => {
     isLoading,
     apiData,
     serverError
-  }, setGetData ] = useFetchQuestion()
+  }] = useFetchQuestion()
 
   const questions = useSelector(state => state.questions.queue[state.questions.trace])
 
   useEffect(()=> {
-    console.log(data)
+    console.log(questions)
   },[])
 
   const onSelect = () => {
 
   } 
 
-  if(isLoading) return <h3 className="text-light">is Loading...</h3>
+  if(isLoading) return <h3 className="text-light">Loading...</h3>
   if(serverError) return <h3 className="text-light">{serverError || "Unknown Error"}</h3>
 
   return (
     <div className="questions">
       <h2 className="text-light">{questions?.question}</h2>
-      <ul key={questions.id}>
+      <ul key={questions?.id}>
       {
-        questions.options.map((q,i) => ( 
+        questions?.options.map((q,i) => ( 
             <li key={i + q}>
               <input 
                 type="radio" 

@@ -18,7 +18,7 @@ export const useFetchQuestion = () => {
     setGetData(prev => ({...prev, isLoading: true}))
     // async function fetch backend data
 
-    (async () => {
+    {(async () => {
       try {
         let question = await data
         if(question.length > 0) {
@@ -33,7 +33,7 @@ export const useFetchQuestion = () => {
         setGetData(prev => ({...prev, isLoading: false}))
         setGetData(prev => ({...prev, serverError: error}))
       }
-    })()
+    })()}
   },[dispatch])
 
 
