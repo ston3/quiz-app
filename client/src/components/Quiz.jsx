@@ -1,10 +1,11 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Questions } from "./Questions"
 import { useSelector, useDispatch } from "react-redux"
 import { MoveNextQuestion, MovePrevQuestion } from "../hooks/FetchQuestion"
 import { PushAnswer } from "../hooks/setResult"
 
 export const Quiz = () => {
+  const [check, setChecked] = useState(undefined)
   const state = useSelector(state => state)
   const { queue, trace } = useSelector(state => state.questions)
   const dispatch = useDispatch()
@@ -28,10 +29,15 @@ export const Quiz = () => {
     if(trace > 0) dispatch(MovePrevQuestion())
   }
 
+  const onChecked = check => {
+    console.log(check)
+    setChecked(check)
+  }
+
   return (
     <div className="container">
       <h1 className="title text-light">Quiz App</h1>
-      <Questions />
+      <Questions onChecked={onChecked}/>
       {
 
       }

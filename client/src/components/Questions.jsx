@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react"
-import data from '../data'
 import { useFetchQuestion } from "../hooks/FetchQuestion"
 import { useSelector } from "react-redux"
 
 
-export const Questions = () => {
-  const [checked, setChecked] = useState(undefined)
+export const Questions = ({onChecked}) => {
+  //const [checked, setChecked] = useState(undefined)
   const [{
     isLoading,
     apiData,
@@ -18,9 +17,10 @@ export const Questions = () => {
     console.log(questions)
   },[])
 
-  const onSelect = () => {
 
-  } 
+  const onSelect = i => {
+    onChecked(i)
+  }
 
   if(isLoading) return <h3 className="text-light">Loading...</h3>
   if(serverError) return <h3 className="text-light">{serverError || "Unknown Error"}</h3>
@@ -34,13 +34,13 @@ export const Questions = () => {
             <li key={i + q}>
               <input 
                 type="radio" 
-                value={true}
+                value={false}
                 name="options"
                 id={`q${i}-option`}
-                onChange={onSelect}
+                onChange={() => onSelect(i)}
               />
-              <label htmlFor={`q${i}-option`}>{q}</label>
-              <div className="check checked"></div>
+              <label className="text-primary" htmlFor={`q${i}-option`}>{q}</label>
+              <div className="check"></div>
               </li>
         ))
         }
